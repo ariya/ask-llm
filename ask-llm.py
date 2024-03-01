@@ -64,7 +64,7 @@ def main():
         print(answer)
         elapsed = time.time() - start
         if LLM_DEBUG:
-            print(f"[{round(elapsed, 3)} s]")
+            print(f"[{round(elapsed * 1000)} ms]")
         print()
 
 
