@@ -1,0 +1,33 @@
+name: Test with Babashka
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Babashka
+        run: curl -OL https://raw.githubusercontent.com/babashka/babashka/master/install && bash ./install
+
+      - run: bb --version
+
+      - name: Get and build llama.cpp
+        run: git clone https://github.com/ggerganov/llama.cpp.git && cd llama.cpp && make
+
+      - name: Download Phi 2 model
+        run: curl -OL https://huggingface.co/TheBloke/dolphin-2_6-phi-2-GGUF/resolve/main/dolphin-2_6-phi-2.Q3_K_M.gguf
+
+      - name: Run llama.cpp with Phi 2
+        run: ./llama.cpp/server --host 0.0.0.0 -m ./dolphin-2_6-phi-2.Q3_K_M.gguf &
+
+      - name: Wait until the API server is ready
+        run: while ! curl -s 'http://localhost:8080/health' | grep 'ok'; do sleep 1; done
+        timeout-minutes: 3
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.clj | grep -i jupiter
+        timeout-minutes: 7
+        env:
+          LLM_API_BASE_URL: 'http://127.0.0.1:8080/v1'
+          LLM_DEBUG: 1
