@@ -29,7 +29,7 @@ jobs:
         timeout-minutes: 3
 
       - name: Test the Python flavor
-        run: echo 'Which planet in our solar system is the largest?' | pypy3 ./ask-llm.py
+        run: echo 'Which planet in our solar system is the largest?' | pypy3 ./ask-llm.py | grep -i jupiter
         timeout-minutes: 7
         env:
           LLM_API_BASE_URL: 'http://127.0.0.1:8080/v1'
