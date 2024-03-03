@@ -1,7 +1,7 @@
 #!/usr/bin/env bb
 
 (require '[clojure.string :as str]
-         '[babashka.curl :as curl]
+         '[babashka.http-client :as http]
          '[cheshire.core :as json])
 
 (def LLM-API-BASE-URL (or (System/getenv "LLM_API_BASE_URL") "https://api.openai.com/v1"))
@@ -10,10 +10,14 @@
 
 (def LLM-DEBUG (System/getenv "LLM_DEBUG"))
 
+(defn http-json-headers [bearer]
+  (if bearer {:content-type "application/json"
+              :authorization (str "Bearer " bearer)}
+      {:content-type "application/json"}))
+
 (defn http-post [url bearer payload]
-  (-> (curl/post url {:body (json/generate-string payload {:key-fn (comp name keyword)})
-                      :headers {"Content-Type" "application/json"
-                                "Authorization" (if bearer (str "Bearer " bearer) nil)}})
+  (-> (http/post url {:headers (http-json-headers bearer)
+                      :body (json/encode payload)})
       :body (json/parse-string true)))
 
 (def LLM-CHAT-URL (str LLM-API-BASE-URL "/chat/completions"))
