@@ -1,0 +1,19 @@
+name: Prepare llama.cpp and Phi 2
+description: Build llama.cpp and load Phi 2
+runs:
+  using: "composite"
+  steps:
+    - name: Get and build llama.cpp
+      shell: bash
+      run: |
+        git clone https://github.com/ggerganov/llama.cpp.git
+        cd llama.cpp
+        make server
+
+    - name: Download Phi 2 model
+      shell: bash
+      run: curl -OL https://huggingface.co/TheBloke/dolphin-2_6-phi-2-GGUF/resolve/main/dolphin-2_6-phi-2.Q3_K_M.gguf
+
+    - name: Run llama.cpp with Phi 2
+      shell: bash
+      run: ./llama.cpp/server --host 0.0.0.0 -m ./dolphin-2_6-phi-2.Q3_K_M.gguf &

@@ -13,16 +13,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Get and build llama.cpp
-        run: git clone https://github.com/ggerganov/llama.cpp.git && cd llama.cpp && make
+      - name: Prepare LLM (Phi 2)
+        uses: ./.github/actions/prepare-llm
 
-      - name: Download Phi 2 model
-        run: curl -OL https://huggingface.co/TheBloke/dolphin-2_6-phi-2-GGUF/resolve/main/dolphin-2_6-phi-2.Q3_K_M.gguf
-
-      - name: Run llama.cpp with Phi 2
-        run: ./llama.cpp/server --host 0.0.0.0 -m ./dolphin-2_6-phi-2.Q3_K_M.gguf &
-
-      - name: Wait until the API server is ready
+      - name: Wait until the LLM server is ready
         run: while ! curl -s 'http://localhost:8080/health' | grep 'ok'; do sleep 1; done
         timeout-minutes: 3
 
