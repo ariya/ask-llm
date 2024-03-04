@@ -15,7 +15,7 @@ jobs:
 
       - run: pypy3 --version
 
-      - name: Prepare LLM (Phi 2)
+      - name: Prepare LLM (TinyLlama)
         uses: ./.github/actions/prepare-llm
 
       - name: Wait until the LLM server is ready

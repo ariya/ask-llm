@@ -1,11 +1,11 @@
-name: Prepare Phi 2
-description: Download Phi 2 and launch it
+name: Prepare TinyLlama
+description: Download TinyLlama and launch it
 runs:
   using: "composite"
   steps:
-    - name: Download Phi 2 model
+    - name: Download TinyLlama model
       shell: bash
-      run: curl -OL https://huggingface.co/TheBloke/dolphin-2_6-phi-2-GGUF/resolve/main/dolphin-2_6-phi-2.Q3_K_M.gguf
+      run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-1T-OpenOrca-GGUF/resolve/main/tinyllama-1.1b-1t-openorca.Q3_K_M.gguf
 
     - name: Setup binfmt with APE
       shell: bash
@@ -15,9 +15,9 @@ runs:
         sudo sh -c "echo ':APE:M::MZqFpD::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
         sudo sh -c "echo ':APE-jart:M::jartsr::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
 
-    - name: Run Phi 2 with Llamafile
+    - name: Run TinyLlama with Llamafile
       shell: bash
       run: |
         curl -OL https://github.com/Mozilla-Ocho/llamafile/releases/download/0.6.2/llamafile-0.6.2.zip
         unzip llamafile-0.6.2.zip
-        ./llamafile-0.6.2/bin/llamafile -m ./dolphin-2_6-phi-2.Q3_K_M.gguf &
+        ./llamafile-0.6.2/bin/llamafile -m ./tinyllama-1.1b-1t-openorca.Q3_K_M.gguf &
