@@ -5,7 +5,7 @@ runs:
   steps:
     - name: Download TinyLlama model
       shell: bash
-      run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-1T-OpenOrca-GGUF/resolve/main/tinyllama-1.1b-1t-openorca.Q3_K_M.gguf
+      run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
 
     - name: Download and unpack Nitro
       shell: bash
@@ -26,4 +26,4 @@ runs:
       run: |
         curl http://localhost:8080/inferences/llamacpp/loadmodel \
           -H 'Content-Type: application/json' \
-          -d '{"llama_model_path": "./tinyllama-1.1b-1t-openorca.Q3_K_M.gguf"}'
+          -d '{"llama_model_path": "./tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"}'
