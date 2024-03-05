@@ -16,9 +16,6 @@ jobs:
 
       - name: Prepare LLM (TinyLlama)
         uses: ./.github/actions/prepare-llm
-
-      - name: Wait until the LLM server is ready
-        run: while ! curl -s 'http://localhost:8080/health' | grep 'ok'; do sleep 1; done
         timeout-minutes: 3
 
       - run: echo 'Which planet in our solar system is the largest?' | bun ./ask-llm.js | grep -i jupiter

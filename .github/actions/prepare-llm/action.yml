@@ -7,17 +7,23 @@ runs:
       shell: bash
       run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-1T-OpenOrca-GGUF/resolve/main/tinyllama-1.1b-1t-openorca.Q3_K_M.gguf
 
-    - name: Setup binfmt with APE
+    - name: Download and unpack Nitro
       shell: bash
       run: |
-        sudo wget -O /usr/bin/ape https://cosmo.zip/pub/cosmos/bin/ape-$(uname -m).elf
-        sudo chmod +x /usr/bin/ape
-        sudo sh -c "echo ':APE:M::MZqFpD::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
-        sudo sh -c "echo ':APE-jart:M::jartsr::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
+        curl -OL https://github.com/janhq/nitro/releases/download/v0.3.14/nitro-0.3.14-linux-amd64.tar.gz
+        tar zxvf nitro-0.3.14-linux-amd64.tar.gz
 
-    - name: Run TinyLlama with Llamafile
+    - name: Launch Nitro
+      shell: bash
+      run: ./nitro/nitro 2 127.0.0.1 8080 &
+
+    - name: Wait until Nitro is ready
+      shell: bash
+      run: while ! curl -s 'http://localhost:8080/healthz' | grep 'alive'; do sleep 1; done
+
+    - name: Load TinyLlama into Nitro
       shell: bash
       run: |
-        curl -OL https://github.com/Mozilla-Ocho/llamafile/releases/download/0.6.2/llamafile-0.6.2.zip
-        unzip llamafile-0.6.2.zip
-        ./llamafile-0.6.2/bin/llamafile -m ./tinyllama-1.1b-1t-openorca.Q3_K_M.gguf &
+        curl http://localhost:8080/inferences/llamacpp/loadmodel \
+          -H 'Content-Type: application/json' \
+          -d '{"llama_model_path": "./tinyllama-1.1b-1t-openorca.Q3_K_M.gguf"}'
