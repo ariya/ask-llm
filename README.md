@@ -52,6 +52,20 @@ export OPENAI_API_KEY="sk-yourownapikey"
 
 To use it with other LLM services, populate relevant environment variables as shown in these examples:
 
+* [Deep Infra](https://deepinfra.com)
+```bash
+export LLM_API_BASE_URL=https://api.deepinfra.com/v1/openai
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.1"
+```
+
+* [Fireworks](https://fireworks.ai/)
+```bash
+export LLM_API_BASE_URL=https://api.fireworks.ai/inference/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="accounts/fireworks/models/mistral-7b-instruct-4k"
+```
+
 * [OpenRouter](https://openrouter.ai/)
 ```bash
 export LLM_API_BASE_URL=https://openrouter.ai/api/v1
@@ -64,18 +78,4 @@ export LLM_CHAT_MODEL="mistralai/mistral-7b-instruct"
 export LLM_API_BASE_URL=https://api.together.xyz/v1
 export LLM_API_KEY="sk-yourownapikey"
 export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.2"
-```
-
-* [Fireworks](https://fireworks.ai/)
-```bash
-export LLM_API_BASE_URL=https://api.fireworks.ai/inference/v1
-export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="accounts/fireworks/models/mistral-7b-instruct-4k"
-```
-
-* [Deep Infra](https://deepinfra.com)
-```bash
-export LLM_API_BASE_URL=https://api.deepinfra.com/v1/openai
-export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.1"
 ```
