@@ -1,5 +1,7 @@
 # Ask LLM
 
+[![asciicast](https://asciinema.org/a/646113.svg)](https://asciinema.org/a/646113)
+
 This is a straightforward, zero-dependency CLI tool to interact with any LLM service.
 
 It is available in several flavors:
