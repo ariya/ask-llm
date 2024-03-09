@@ -66,6 +66,12 @@ export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="accounts/fireworks/models/mistral-7b-instruct-4k"
 ```
 
+* [Lepton](https://lepton.ai)
+```bash
+export LLM_API_BASE_URL=https://mixtral-8x7b.lepton.run/api/v1/
+export LLM_API_KEY="yourownapikey"
+```
+
 * [OpenRouter](https://openrouter.ai/)
 ```bash
 export LLM_API_BASE_URL=https://openrouter.ai/api/v1
