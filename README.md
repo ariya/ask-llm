@@ -18,9 +18,13 @@ Once a suitable inference engine is set up (local or remote, read the next secti
 ```
 
 or pipe the question directly to get an immediate answer:
-
 ```bash
 echo "Why is the sky blue?" | ./ask-llm.py
+```
+
+or request the LLM to perform a certain task:
+```bash
+echo "Translate into German: thank you" | ./ask-llm.py
 ```
 
 To use it locally with [llama.cpp](https://github.com/ggerganov/llama.cpp) inference engine, make sure to load a suitable model that utilizes the [ChatML format](https://github.com/openai/openai-python/blob/release-v0.28.0/chatml.md) (example: [TinyLLama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF), [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF), etc). Set the environment variable `LLM_API_BASE_URL` accordingly:
