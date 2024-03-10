@@ -27,9 +27,9 @@ or request the LLM to perform a certain task:
 echo "Translate into German: thank you" | ./ask-llm.py
 ```
 
-To use it locally with [llama.cpp](https://github.com/ggerganov/llama.cpp) inference engine, make sure to load a suitable model that utilizes the [ChatML format](https://github.com/openai/openai-python/blob/release-v0.28.0/chatml.md) (example: [TinyLLama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF), [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF), etc). Set the environment variable `LLM_API_BASE_URL` accordingly:
+To use it locally with [llama.cpp](https://github.com/ggerganov/llama.cpp) inference engine, make sure to load a quantized model (example: [TinyLLama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF), [Gemma 2B](https://huggingface.co/google/gemma-2b-it-GGUF), [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF), etc) with the suitable chat template. Set the environment variable `LLM_API_BASE_URL` accordingly:
 ```bash
-~/llama.cpp/server -m tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+~/llama.cpp/server -m gemma-2b-it-q4_k_m.gguf --chat-template gemma
 export LLM_API_BASE_URL=http://127.0.0.1:8080/v1
 ```
 
