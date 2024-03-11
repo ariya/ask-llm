@@ -115,11 +115,11 @@ const SYSTEM_PROMPT = 'Answer the question politely and concisely.';
     const messages = [];
     messages.push({ role: 'system', content: SYSTEM_PROMPT });
 
+    let loop = true;
     const interface = readline.createInterface({ input: process.stdin, output: process.stdout });
+    interface.on('close', () => { loop = false; });
 
     const qa = () => {
-        let loop = true;
-        interface.on('close', () => { loop = false; });
         interface.question('>> ', async (question) => {
             messages.push({ role: 'user', content: question });
             const start = Date.now();
