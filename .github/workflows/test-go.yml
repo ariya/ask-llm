@@ -1,0 +1,25 @@
+name: Test with Go
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '>=1.17.0'
+
+      - run: go version
+
+      - name: Prepare LLM (TinyLlama)
+        uses: ./.github/actions/prepare-llm
+        timeout-minutes: 3
+
+      - run: echo 'Which planet in our solar system is the largest?' | go run ./ask-llm.go | grep -i jupiter
+        timeout-minutes: 7
+        env:
+          LLM_API_BASE_URL: 'http://127.0.0.1:8080/v1'
+          LLM_DEBUG: 1

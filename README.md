@@ -9,12 +9,14 @@ It is available in several flavors:
 * Python version. Compatible with [CPython](https://python.org) or [PyPy](https://pypy.org),  v3.10 or higher.
 * JavaScript version. Compatible with [Node.js](https://nodejs.org) (>= v18) or [Bun](https://bun.sh) (>= v1.0).
 * Clojure version. Compatible with [Babashka](https://babashka.org/) (>= 1.3).
+* Go version. Compatible with [Go](https://golang.org), v1.19 or higher.
 
 Once a suitable inference engine is set up (local or remote, read the next section), interact with the LLM:
 ```bash
-./ask-llm.py  # for Python user
-./ask-llm.js  # for Node.js user
-./ask-llm.clj # for Clojure user
+./ask-llm.py         # for Python user
+./ask-llm.js         # for Node.js user
+./ask-llm.clj        # for Clojure user
+go run ask-llm.go    # for Go user
 ```
 
 or pipe the question directly to get an immediate answer:
