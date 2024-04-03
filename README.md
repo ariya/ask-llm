@@ -72,6 +72,13 @@ export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="accounts/fireworks/models/mistral-7b-instruct-4k"
 ```
 
+* [Grog](https://groq.com/)
+```bash
+export LLM_API_BASE_URL=https://api.groq.com/openai/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="gemma-7b-it"
+```
+
 * [Lepton](https://lepton.ai)
 ```bash
 export LLM_API_BASE_URL=https://mixtral-8x7b.lepton.run/api/v1/
