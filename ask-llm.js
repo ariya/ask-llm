@@ -82,6 +82,7 @@ const chat = async (messages, handler) => {
     const decoder = new TextDecoder();
 
     let answer = '';
+    let buffer = '';
     while (true) {
         const { value, done } = await reader.read();
         if (done) {
@@ -89,8 +90,9 @@ const chat = async (messages, handler) => {
         }
         const lines = decoder.decode(value).split('\n');
         for (let i = 0; i < lines.length; ++i) {
-            const line = lines[i];
+            const line = buffer + lines[i];
             if (line[0] === ':') {
+                buffer = '';
                 continue;
             }
             if (line === 'data: [DONE]') {
@@ -98,7 +100,10 @@ const chat = async (messages, handler) => {
             }
             if (line.length > 0) {
                 const partial = parse(line);
-                if (partial && partial.length > 0) {
+                if (partial === null) {
+                    buffer = line;
+                } else if (partial && partial.length > 0) {
+                    buffer = '';
                     answer += partial;
                     handler && handler(partial);
                 }
@@ -127,7 +132,7 @@ const SYSTEM_PROMPT = 'Answer the question politely and concisely.';
             messages.push({ role: 'user', content: question });
             const start = Date.now();
             const answer = await chat(messages, (str) => process.stdout.write(str));
-            messages.push({ role: 'assistant', content: answer });
+            messages.push({ role: 'assistant', content: answer.trim() });
             console.log();
             const elapsed = Date.now() - start;
             LLM_DEBUG && console.log(`[${elapsed} ms]`);
