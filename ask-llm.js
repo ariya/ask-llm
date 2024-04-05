@@ -104,8 +104,14 @@ const chat = async (messages, handler) => {
                     buffer = line;
                 } else if (partial && partial.length > 0) {
                     buffer = '';
-                    answer += partial;
-                    handler && handler(partial);
+                    if (answer.length < 1) {
+                        const leading = partial.trim();
+                        answer = leading;
+                        handler && (leading.length > 0) && handler(leading);
+                    } else {
+                        answer += partial;
+                        handler && handler(partial);
+                    }
                 }
             }
         }
