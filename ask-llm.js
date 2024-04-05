@@ -90,6 +90,9 @@ const chat = async (messages, handler) => {
         const lines = decoder.decode(value).split('\n');
         for (let i = 0; i < lines.length; ++i) {
             const line = lines[i];
+            if (line[0] === ':') {
+                continue;
+            }
             if (line === 'data: [DONE]') {
                 break;
             }
