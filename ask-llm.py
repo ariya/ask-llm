@@ -28,7 +28,7 @@ def chat(messages):
         "temperature": 0,
     }
     json_body = json.dumps(body).encode("utf-8")
-    request = urllib.request.Request(url, data=json_body, headers=headers)
+    request = urllib.request.Request(url, data=json_body, headers=headers, method="POST")
     response = urllib.request.urlopen(request)
     if response.status != 200:
         raise Exception(f"HTTP error: {response.status} {response.reason}")
