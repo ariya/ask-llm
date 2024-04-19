@@ -60,6 +60,13 @@ export OPENAI_API_KEY="sk-yourownapikey"
 
 To use it with other LLM services, populate relevant environment variables as shown in these examples:
 
+* [Anyscale](https://www.anyscale.com/)
+```
+export LLM_API_BASE_URL=https://api.endpoints.anyscale.com/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.1"
+```
+
 * [Deep Infra](https://deepinfra.com)
 ```bash
 export LLM_API_BASE_URL=https://api.deepinfra.com/v1/openai
