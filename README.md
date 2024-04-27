@@ -11,7 +11,9 @@ It is available in several flavors:
 * Clojure version. Compatible with [Babashka](https://babashka.org/) (>= 1.3).
 * Go version. Compatible with [Go](https://golang.org), v1.19 or higher.
 
-Once a suitable inference engine is set up (local or remote, read the next section), interact with the LLM:
+Ask LLM is compatible with either a cloud-based (managed) LLM service (e.g. [OpenAI GPT model](https://platform.openai.com/docs), [Grog](https://groq.com), [OpenRouter](https://openrouter.ai), etc) or with a locally hosted LLM server (e.g. [llama.cpp](https://github.com/ggerganov/llama.cpp), [LocalAI](https://localai.io), [Ollama](https://ollama.com), etc). Please continue reading for detailed instructions.
+
+Interact with the LLM with:
 ```bash
 ./ask-llm.py         # for Python user
 ./ask-llm.js         # for Node.js user
@@ -29,42 +31,48 @@ or request the LLM to perform a certain task:
 echo "Translate into German: thank you" | ./ask-llm.py
 ```
 
-To use it locally with [llama.cpp](https://github.com/ggerganov/llama.cpp) inference engine, make sure to load a quantized model (example: [TinyLLama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF), [Gemma 2B](https://huggingface.co/google/gemma-2b-it-GGUF), [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF), etc) with the suitable chat template. Set the environment variable `LLM_API_BASE_URL` accordingly:
+## Using Local LLM Servers
+
+Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Nitro](https://nitro.jan.ai), [Ollama](https://ollama.com), and [LocalAI](https://localai.io).
+
+To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, ensure to load a quantized model such as [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF). Adjust the environment variable `LLM_API_BASE_URL` accordingly:
 ```bash
-~/llama.cpp/server -m gemma-2b-it-q4_k_m.gguf --chat-template gemma
+/path/to/llama.cpp/server -m Phi-3-mini-4k-instruct-q4.gguf
 export LLM_API_BASE_URL=http://127.0.0.1:8080/v1
 ```
 
-To use it locally with [Nitro](https://nitro.jan.ai/), follow its [Quickstart guide](https://nitro.jan.ai/quickstart#step-4-load-model) to load a model (e.g. [TinyLLama](https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF), [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF), etc) and set the environment variable `LLM_API_BASE_URL`:
+To utilize [Nitro](https://nitro.jan.ai) locally, refer to its [Quickstart guide](https://nitro.jan.ai/quickstart#step-4-load-model) for loading a model like [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF) and set the environment variable `LLM_API_BASE_URL`:
 ```bash
 export LLM_API_BASE_URL=http://localhost:3928/v1
 ```
 
-To use it locally with [Ollama](https://ollama.com/), load a model and set the environment variable `LLM_API_BASE_URL`:
+To use [Ollama](https://ollama.com) locally, load a model and configure the environment variable `LLM_API_BASE_URL`:
 ```bash
-ollama pull gemma:2b
+ollama pull phi3
 export LLM_API_BASE_URL=http://127.0.0.1:11434/v1
-export LLM_CHAT_MODEL='gemma:2b'
+export LLM_CHAT_MODEL='phi3'
 ```
 
-To use it locally with [LocalAI](https://localai.io), launch its container and the set environment variable `LLM_API_BASE_URL`:
+For [LocalAI](https://localai.io), initiate its container and adjust the environment variable `LLM_API_BASE_URL`:
 ```bash
 docker run -ti -p 8080:8080 localai/localai tinyllama-chat
 export LLM_API_BASE_URL=http://localhost:3928/v1
 ```
 
-To use [OpenAI GPT model](https://platform.openai.com/docs), set the environment variable `OPENAI_API_KEY` to your API key:
+## Using Managed LLM Services
+
+To use [OpenAI GPT model](https://platform.openai.com/docs), configure the environment variable `OPENAI_API_KEY` with your API key:
 ```bash
 export OPENAI_API_KEY="sk-yourownapikey"
 ```
 
-To use it with other LLM services, populate relevant environment variables as shown in these examples:
+To utilize other LLM services, populate the relevant environment variables as demonstrated in the following examples:
 
 * [Anyscale](https://www.anyscale.com/)
-```
+```bash
 export LLM_API_BASE_URL=https://api.endpoints.anyscale.com/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.1"
+export LLM_CHAT_MODEL="meta-llama/Llama-3-8b-chat-hf"
 ```
 
 * [Deep Infra](https://deepinfra.com)
@@ -78,7 +86,7 @@ export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.1"
 ```bash
 export LLM_API_BASE_URL=https://api.fireworks.ai/inference/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="accounts/fireworks/models/mistral-7b-instruct-4k"
+export LLM_CHAT_MODEL="accounts/fireworks/models/llama-v3-8b-instruct"
 ```
 
 * [Grog](https://groq.com/)
@@ -97,13 +105,13 @@ export LLM_API_KEY="yourownapikey"
 * [OpenRouter](https://openrouter.ai/)
 ```bash
 export LLM_API_BASE_URL=https://openrouter.ai/api/v1
-export LLM_API_KEY="sk-yourownapikey"
-export LLM_CHAT_MODEL="mistralai/mistral-7b-instruct"
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="mistralai/mistral-7b-instruct:free"
 ```
 
 * [Together](https://www.together.ai/)
 ```bash
 export LLM_API_BASE_URL=https://api.together.xyz/v1
-export LLM_API_KEY="sk-yourownapikey"
-export LLM_CHAT_MODEL="mistralai/Mistral-7B-Instruct-v0.2"
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="meta-llama/Llama-3-8b-chat-hf"
 ```
