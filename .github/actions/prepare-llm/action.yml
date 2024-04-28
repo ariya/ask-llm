@@ -7,23 +7,16 @@ runs:
       shell: bash
       run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
 
-    - name: Download and unpack Nitro
+    - name: Download and unpack llama.cpp
       shell: bash
       run: |
-        curl -OL https://github.com/janhq/nitro/releases/download/v0.3.22/nitro-0.3.22-linux-amd64-avx.tar.gz
-        tar zxvf nitro-0.3.22-linux-amd64-avx.tar.gz
+        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b2751/llama-b2751-bin-ubuntu-x64.zip
+        unzip llama-b2751-bin-ubuntu-x64.zip
 
-    - name: Launch Nitro
+    - name: Launch llama.cpp
       shell: bash
-      run: ./nitro/nitro 2 127.0.0.1 8080 &
+      run: ./build/bin/server -m ./tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf &
 
-    - name: Wait until Nitro is ready
+    - name: Wait until it is ready
       shell: bash
-      run: while ! curl -s 'http://localhost:8080/healthz' | grep 'alive'; do sleep 1; done
-
-    - name: Load TinyLlama into Nitro
-      shell: bash
-      run: |
-        curl http://localhost:8080/inferences/llamacpp/loadmodel \
-          -H 'Content-Type: application/json' \
-          -d '{"llama_model_path": "./tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf"}'
+      run: while ! curl -s 'http://localhost:8080/health' | grep 'ok'; do sleep 1; done
