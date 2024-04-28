@@ -10,8 +10,8 @@ runs:
     - name: Download and unpack Nitro
       shell: bash
       run: |
-        curl -OL https://github.com/janhq/nitro/releases/download/v0.3.14/nitro-0.3.14-linux-amd64.tar.gz
-        tar zxvf nitro-0.3.14-linux-amd64.tar.gz
+        curl -OL https://github.com/janhq/nitro/releases/download/v0.3.22/nitro-0.3.22-linux-amd64-avx.tar.gz
+        tar zxvf nitro-0.3.22-linux-amd64-avx.tar.gz
 
     - name: Launch Nitro
       shell: bash
