@@ -15,7 +15,7 @@ jobs:
 
       - run: pypy3 --version
 
-      - name: Prepare LLM (TinyLlama)
+      - name: Prepare LLM (Phi-3 Mini)
         uses: ./.github/actions/prepare-llm
         timeout-minutes: 3
 

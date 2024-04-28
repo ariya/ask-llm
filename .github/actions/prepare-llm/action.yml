@@ -1,11 +1,11 @@
-name: Prepare TinyLlama
-description: Download TinyLlama and launch it
+name: Prepare Phi-3 Mini
+description: Download Phi-3 Mini and launch it
 runs:
   using: "composite"
   steps:
-    - name: Download TinyLlama model
+    - name: Download Phi-3 Mini
       shell: bash
-      run: curl -OL https://huggingface.co/TheBloke/TinyLlama-1.1B-Chat-v1.0-GGUF/resolve/main/tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf
+      run: curl -OL https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
 
     - name: Download and unpack llama.cpp
       shell: bash
@@ -15,7 +15,7 @@ runs:
 
     - name: Launch llama.cpp
       shell: bash
-      run: ./build/bin/server -m ./tinyllama-1.1b-chat-v1.0.Q4_K_M.gguf &
+      run: ./build/bin/server -m ./Phi-3-mini-4k-instruct-q4.gguf &
 
     - name: Wait until it is ready
       shell: bash
