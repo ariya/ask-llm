@@ -25,6 +25,7 @@ type Message struct {
 type ChatRequest struct {
 	Messages    []Message `json:"messages"`
 	Model       string    `json:"model"`
+	Stop        []string  `json:"stop"`
 	MaxTokens   int       `json:"max_tokens"`
 	Temperature float64   `json:"temperature"`
 }
@@ -44,6 +45,7 @@ func chat(messages []Message) (string, error) {
 	requestBody := ChatRequest{
 		Messages:    messages,
 		Model:       LLMChatModel,
+		Stop:        []string{"<|im_end|>", "<|end|>"},
 		MaxTokens:   200,
 		Temperature: 0,
 	}

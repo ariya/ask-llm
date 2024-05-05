@@ -24,6 +24,7 @@ def chat(messages):
     body = {
         "messages": messages,
         "model": LLM_CHAT_MODEL or "gpt-3.5-turbo",
+        "stop": ["<|im_end|>", "<|end|>"],
         "max_tokens": 200,
         "temperature": 0,
     }
