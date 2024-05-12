@@ -45,7 +45,7 @@ func chat(messages []Message) (string, error) {
 	requestBody := ChatRequest{
 		Messages:    messages,
 		Model:       LLMChatModel,
-		Stop:        []string{"<|im_end|>", "<|end|>"},
+		Stop:        []string{"<|im_end|>", "<|end|>", "<|eot_id|>"},
 		MaxTokens:   200,
 		Temperature: 0,
 	}

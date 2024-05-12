@@ -33,7 +33,7 @@
 (defn chat [messages]
   (let [body {:messages messages
               :model (or LLM-CHAT-MODEL "gpt-3.5-turbo")
-              :stop ["<|im_end|>" "<|end|>"]
+              :stop ["<|im_end|>" "<|end|>" "<|eot_id|>"]
               :max_tokens 200
               :temperature 0}
         response (http-post LLM-CHAT-URL LLM-API-KEY body)]

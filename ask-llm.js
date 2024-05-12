@@ -36,7 +36,7 @@ const chat = async (messages, handler) => {
     const url = `${LLM_API_BASE_URL}/chat/completions`;
     const auth = LLM_API_KEY ? { 'Authorization': `Bearer ${LLM_API_KEY}` } : {};
     const model = LLM_CHAT_MODEL || 'gpt-3.5-turbo';
-    const stop = ['<|im_end|>', '<|end|>'];
+    const stop = ['<|im_end|>', '<|end|>', '<|eot_id|>'];
     const max_tokens = 200;
     const temperature = 0;
     const stream = LLM_STREAMING && typeof handler === 'function';

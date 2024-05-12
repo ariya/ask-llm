@@ -25,7 +25,7 @@ async def chat(messages, handler=None):
         headers["Authorization"] = auth_header
 
     model = LLM_CHAT_MODEL or "gpt-3.5-turbo"
-    stop = ["<|im_end|>", "<|end|>"]
+    stop = ["<|im_end|>", "<|end|>", "<|eot_id|>"]
     max_tokens = 200
     temperature = 0
     stream = LLM_STREAMING and callable(handler)
