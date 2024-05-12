@@ -102,6 +102,13 @@ export LLM_API_BASE_URL=https://mixtral-8x7b.lepton.run/api/v1/
 export LLM_API_KEY="yourownapikey"
 ```
 
+* [Novita](https://novita.ai)
+```bash
+export LLM_API_BASE_URL='https://api.novita.ai/v3/openai'
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODE="meta-llama/llama-3-8b-instruct"
+```
+
 * [OpenRouter](https://openrouter.ai/)
 ```bash
 export LLM_API_BASE_URL=https://openrouter.ai/api/v1
