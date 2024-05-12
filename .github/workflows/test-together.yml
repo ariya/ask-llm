@@ -1,0 +1,25 @@
+name: Test on Together
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.js | tee output.txt | grep -i jupiter
+        timeout-minutes: 3
+        env:
+          LLM_API_BASE_URL: 'https://api.together.xyz/v1'
+          LLM_API_KEY: ${{ secrets.TOGETHER_API_KEY }}
+          LLM_CHAT_MODEL: 'meta-llama/Llama-3-8b-chat-hf'
+
+      - run: cat output.txt
