@@ -11,7 +11,7 @@ It is available in several flavors:
 * Clojure version. Compatible with [Babashka](https://babashka.org/) (>= 1.3).
 * Go version. Compatible with [Go](https://golang.org), v1.19 or higher.
 
-Ask LLM is compatible with either a cloud-based (managed) LLM service (e.g. [OpenAI GPT model](https://platform.openai.com/docs), [Grog](https://groq.com), [OpenRouter](https://openrouter.ai), etc) or with a locally hosted LLM server (e.g. [llama.cpp](https://github.com/ggerganov/llama.cpp), [LocalAI](https://localai.io), [Ollama](https://ollama.com), etc). Please continue reading for detailed instructions.
+Ask LLM is compatible with either a cloud-based (managed) LLM service (e.g. [OpenAI GPT model](https://platform.openai.com/docs), [Groq](https://groq.com), [OpenRouter](https://openrouter.ai), etc) or with a locally hosted LLM server (e.g. [llama.cpp](https://github.com/ggerganov/llama.cpp), [LocalAI](https://localai.io), [Ollama](https://ollama.com), etc). Please continue reading for detailed instructions.
 
 Interact with the LLM with:
 ```bash
@@ -89,7 +89,7 @@ export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="accounts/fireworks/models/llama-v3-8b-instruct"
 ```
 
-* [Grog](https://groq.com/)
+* [Groq](https://groq.com/)
 ```bash
 export LLM_API_BASE_URL=https://api.groq.com/openai/v1
 export LLM_API_KEY="yourownapikey"
