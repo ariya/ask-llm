@@ -106,9 +106,9 @@ export LLM_API_KEY="yourownapikey"
 
 * [Novita](https://novita.ai)
 ```bash
-export LLM_API_BASE_URL='https://api.novita.ai/v3/openai'
+export LLM_API_BASE_URL=https://api.novita.ai/v3/openai
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODE="meta-llama/llama-3-8b-instruct"
+export LLM_CHAT_MODEL="meta-llama/llama-3-8b-instruct"
 ```
 
 * [OpenRouter](https://openrouter.ai/)
