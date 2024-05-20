@@ -1,0 +1,26 @@
+name: Test on Octo
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.js | tee output.txt | grep -i jupiter
+        timeout-minutes: 3
+        env:
+          LLM_API_BASE_URL: 'https://text.octoai.run/v1'
+          LLM_API_KEY: ${{ secrets.OCTOAI_API_KEY }}
+          LLM_CHAT_MODEL: 'hermes-2-pro-mistral-7b'
+          LLM_STREAMING: 'no'
+
+      - run: cat output.txt
