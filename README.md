@@ -115,7 +115,7 @@ export LLM_CHAT_MODE="meta-llama/llama-3-8b-instruct"
 ```bash
 export LLM_API_BASE_URL=https://openrouter.ai/api/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="mistralai/mistral-7b-instruct:free"
+export LLM_CHAT_MODEL="meta-llama/llama-3-8b-instruct:free"
 ```
 
 * [Together](https://www.together.ai/)
