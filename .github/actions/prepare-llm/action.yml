@@ -10,8 +10,8 @@ runs:
     - name: Download and unpack llama.cpp
       shell: bash
       run: |
-        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b2751/llama-b2751-bin-ubuntu-x64.zip
-        unzip llama-b2751-bin-ubuntu-x64.zip
+        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3065/llama-b3065-bin-ubuntu-x64.zip
+        unzip llama-b3065-bin-ubuntu-x64.zip
 
     - name: Launch llama.cpp
       shell: bash
