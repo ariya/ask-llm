@@ -3,19 +3,15 @@ description: Download Phi-3 Mini and launch it
 runs:
   using: "composite"
   steps:
-    - name: Download Phi-3 Mini
-      shell: bash
-      run: curl -OL https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf/resolve/main/Phi-3-mini-4k-instruct-q4.gguf
-
     - name: Download and unpack llama.cpp
       shell: bash
       run: |
         curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3065/llama-b3065-bin-ubuntu-x64.zip
         unzip llama-b3065-bin-ubuntu-x64.zip
 
-    - name: Launch llama.cpp
+    - name: Launch llama.cpp with Phi-3 Mini
       shell: bash
-      run: ./build/bin/server -m ./Phi-3-mini-4k-instruct-q4.gguf &
+      run: ./build/bin/server --hf-repo microsoft/Phi-3-mini-4k-instruct-gguf --hf-file Phi-3-mini-4k-instruct-q4.gguf &
 
     - name: Wait until it is ready
       shell: bash
