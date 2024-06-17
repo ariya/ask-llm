@@ -35,7 +35,7 @@ echo "Translate into German: thank you" | ./ask-llm.py
 
 ## Using Local LLM Servers
 
-Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Nitro](https://nitro.jan.ai), [Ollama](https://ollama.com), and [LocalAI](https://localai.io).
+Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), and [LocalAI](https://localai.io).
 
 To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, ensure to load a quantized model such as [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF). Adjust the environment variable `LLM_API_BASE_URL` accordingly:
 ```bash
@@ -43,9 +43,10 @@ To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its 
 export LLM_API_BASE_URL=http://127.0.0.1:8080/v1
 ```
 
-To utilize [Nitro](https://nitro.jan.ai) locally, refer to its [Quickstart guide](https://nitro.jan.ai/quickstart#step-4-load-model) for loading a model like [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF) and set the environment variable `LLM_API_BASE_URL`:
+To use [Jan](https://jan.ai) with its local API server, refer to [its documentation](https://jan.ai/docs/local-api) and load a model like [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF) and set the environment variable `LLM_API_BASE_URL`:
 ```bash
-export LLM_API_BASE_URL=http://localhost:3928/v1
+export LLM_API_BASE_URL=http://127.0.0.1:1337/v1
+export LLM_CHAT_MODEL='llama3-8b-instruct'
 ```
 
 To use [Ollama](https://ollama.com) locally, load a model and configure the environment variable `LLM_API_BASE_URL`:
