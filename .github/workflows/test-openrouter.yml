@@ -3,6 +3,7 @@ name: Test on OpenRouter
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   test:
