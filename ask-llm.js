@@ -131,11 +131,11 @@ const SYSTEM_PROMPT = 'Answer the question politely and concisely.';
     messages.push({ role: 'system', content: SYSTEM_PROMPT });
 
     let loop = true;
-    const interface = readline.createInterface({ input: process.stdin, output: process.stdout });
-    interface.on('close', () => { loop = false; });
+    const io = readline.createInterface({ input: process.stdin, output: process.stdout });
+    io.on('close', () => { loop = false; });
 
     const qa = () => {
-        interface.question('>> ', async (question) => {
+        io.question('>> ', async (question) => {
             messages.push({ role: 'user', content: question });
             const start = Date.now();
             const answer = await chat(messages, (str) => process.stdout.write(str));
