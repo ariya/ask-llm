@@ -35,7 +35,7 @@ const LLM_DEBUG = process.env.LLM_DEBUG;
 const chat = async (messages, handler) => {
     const url = `${LLM_API_BASE_URL}/chat/completions`;
     const auth = LLM_API_KEY ? { 'Authorization': `Bearer ${LLM_API_KEY}` } : {};
-    const model = LLM_CHAT_MODEL || 'gpt-3.5-turbo';
+    const model = LLM_CHAT_MODEL || 'gpt-4o-mini';
     const stop = ['<|im_end|>', '<|end|>', '<|eot_id|>'];
     const max_tokens = 200;
     const temperature = 0;

@@ -32,7 +32,7 @@
 
 (defn chat [messages]
   (let [body {:messages messages
-              :model (or LLM-CHAT-MODEL "gpt-3.5-turbo")
+              :model (or LLM-CHAT-MODEL "gpt-4o-mini")
               :stop ["<|im_end|>" "<|end|>" "<|eot_id|>"]
               :max_tokens 200
               :temperature 0}

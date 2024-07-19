@@ -24,7 +24,7 @@ async def chat(messages, handler=None):
     if auth_header:
         headers["Authorization"] = auth_header
 
-    model = LLM_CHAT_MODEL or "gpt-3.5-turbo"
+    model = LLM_CHAT_MODEL or "gpt-4o-mini"
     stop = ["<|im_end|>", "<|end|>", "<|eot_id|>"]
     max_tokens = 200
     temperature = 0
