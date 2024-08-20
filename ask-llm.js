@@ -100,7 +100,7 @@ const chat = async (messages, handler) => {
                 break;
             }
             if (line.length > 0) {
-                const partial = parse(line);
+                const partial = parse(line.trim());
                 if (partial === null) {
                     buffer = line;
                 } else if (partial && partial.length > 0) {

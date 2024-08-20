@@ -90,7 +90,7 @@ async def chat(messages, handler=None):
                         finished = True
                         break
                     elif line:
-                        partial = parse(line)
+                        partial = parse(line.strip())
                         if partial is not None:
                             if len(full_answer) == 0:
                                 full_answer = partial.strip()
