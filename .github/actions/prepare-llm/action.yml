@@ -1,17 +1,17 @@
-name: Prepare Phi-3 Mini
-description: Download Phi-3 Mini and launch it
+name: Prepare Phi-3.5 Mini
+description: Download Phi-3.5 Mini and launch it
 runs:
-  using: "composite"
+  using: composite
   steps:
     - name: Download and unpack llama.cpp
       shell: bash
       run: |
-        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3065/llama-b3065-bin-ubuntu-x64.zip
-        unzip llama-b3065-bin-ubuntu-x64.zip
+        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3614/llama-b3614-bin-ubuntu-x64.zip
+        unzip llama-b3614-bin-ubuntu-x64.zip
 
-    - name: Launch llama.cpp with Phi-3 Mini
+    - name: Launch llama.cpp with Phi-3.5 Mini
       shell: bash
-      run: ./build/bin/server --hf-repo microsoft/Phi-3-mini-4k-instruct-gguf --hf-file Phi-3-mini-4k-instruct-q4.gguf &
+      run: ./build/bin/llama-server -c 8192 --hf-repo bartowski/Phi-3.5-mini-instruct-GGUF --hf-file Phi-3.5-mini-instruct-Q4_K_M.gguf &
 
     - name: Wait until it is ready
       shell: bash
