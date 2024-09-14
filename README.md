@@ -1,6 +1,6 @@
 # Ask LLM
 
-[![Test on OpenAI](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml) [![Test on Anyscale](https://github.com/ariya/ask-llm/actions/workflows/test-anyscale.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-anyscale.yml) [![Test on DeepInfra](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml) [![Test on Fireworks](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml) [![Test on Groq](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml) [![Test on Lepton](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml) [![Test on Novita](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml) [![Test on Octo](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml) [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml) [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
+[![Test on OpenAI](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml) [![Test on DeepInfra](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml) [![Test on Fireworks](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml) [![Test on Groq](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml) [![Test on Lepton](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml) [![Test on Novita](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml) [![Test on Octo](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml) [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml) [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
 [![asciicast](https://asciinema.org/a/646222.svg)](https://asciinema.org/a/646222)
 
@@ -70,13 +70,6 @@ export OPENAI_API_KEY="sk-yourownapikey"
 ```
 
 To utilize other LLM services, populate the relevant environment variables as demonstrated in the following examples:
-
-* [Anyscale](https://www.anyscale.com/)
-```bash
-export LLM_API_BASE_URL=https://api.endpoints.anyscale.com/v1
-export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="meta-llama/Llama-3-8b-chat-hf"
-```
 
 * [Deep Infra](https://deepinfra.com)
 ```bash
