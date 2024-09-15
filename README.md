@@ -98,6 +98,13 @@ export LLM_API_BASE_URL=https://mixtral-8x7b.lepton.run/api/v1/
 export LLM_API_KEY="yourownapikey"
 ```
 
+* [Hyperbolic](https://www.hyperbolic.xyz)
+```bash
+export LLM_API_BASE_URL=https://api.hyperbolic.xyz/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
+```
+
 * [Novita](https://novita.ai)
 ```bash
 export LLM_API_BASE_URL=https://api.novita.ai/v3/openai
