@@ -21,6 +21,6 @@ jobs:
         env:
           LLM_API_BASE_URL: 'https://api.novita.ai/v3/openai'
           LLM_API_KEY: ${{ secrets.NOVITA_API_KEY }}
-          LLM_CHAT_MODEL: 'meta-llama/llama-3-8b-instruct'
+          LLM_CHAT_MODEL: 'meta-llama/llama-3.1-8b-instruct'
 
       - run: cat output.txt

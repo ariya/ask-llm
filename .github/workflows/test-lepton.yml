@@ -19,7 +19,8 @@ jobs:
       - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.js | tee output.txt | grep -i jupiter
         timeout-minutes: 3
         env:
-          LLM_API_BASE_URL: 'https://llama3-8b.lepton.run/api/v1'
+          LLM_API_BASE_URL: 'https://llama3-1-8b.lepton.run/api/v1'
           LLM_API_KEY: ${{ secrets.LEPTON_API_KEY }}
+          LLM_CHAT_MODEL: 'llama3-1-8b'
 
       - run: cat output.txt

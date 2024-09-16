@@ -21,7 +21,7 @@ jobs:
         env:
           LLM_API_BASE_URL: 'https://text.octoai.run/v1'
           LLM_API_KEY: ${{ secrets.OCTOAI_API_KEY }}
-          LLM_CHAT_MODEL: 'hermes-2-pro-mistral-7b'
+          LLM_CHAT_MODEL: 'meta-llama-3.1-8b-instruct'
           LLM_STREAMING: 'no'
 
       - run: cat output.txt

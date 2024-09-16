@@ -21,6 +21,6 @@ jobs:
         env:
           LLM_API_BASE_URL: 'https://api.fireworks.ai/inference/v1'
           LLM_API_KEY: ${{ secrets.FIREWORKS_API_KEY }}
-          LLM_CHAT_MODEL: 'accounts/fireworks/models/llama-v3-8b-instruct'
+          LLM_CHAT_MODEL: 'accounts/fireworks/models/llama-v3p1-8b-instruct'
 
       - run: cat output.txt

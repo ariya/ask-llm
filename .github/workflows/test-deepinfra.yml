@@ -21,6 +21,6 @@ jobs:
         env:
           LLM_API_BASE_URL: 'https://api.deepinfra.com/v1/openai'
           LLM_API_KEY: ${{ secrets.DEEPINFRA_API_KEY }}
-          LLM_CHAT_MODEL: 'meta-llama/Meta-Llama-3-8B-Instruct'
+          LLM_CHAT_MODEL: 'meta-llama/Meta-Llama-3.1-8B-Instruct'
 
       - run: cat output.txt
