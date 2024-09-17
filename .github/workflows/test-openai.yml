@@ -22,6 +22,5 @@ jobs:
           LLM_API_BASE_URL: 'https://api.openai.com/v1'
           LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           LLM_CHAT_MODEL: 'gpt-4o-mini'
-          LLM_STREAMING: 'no'
 
       - run: cat output.txt
