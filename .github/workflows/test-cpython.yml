@@ -9,9 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
+      - run: python3 --version
 
       - name: Prepare LLM (Phi-3 Mini)
         uses: ./.github/actions/prepare-llm

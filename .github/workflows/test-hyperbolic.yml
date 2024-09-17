@@ -12,9 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18'
+      - run: node --version
 
       - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.js | tee output.txt | grep -i jupiter
         timeout-minutes: 3
