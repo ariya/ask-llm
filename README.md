@@ -64,6 +64,7 @@ export LLM_API_BASE_URL=http://localhost:3928/v1
 
 [![Test on AI21](https://github.com/ariya/ask-llm/actions/workflows/test-ai21.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-ai21.yml)
 [![Test on DeepInfra](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml)
+[![Test on DeepSeek](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml)
 [![Test on Fireworks](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml)
 [![Test on Groq](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml)
 [![Test on Hyperbolic](https://github.com/ariya/ask-llm/actions/workflows/test-hyperbolic.yml/badge.svg)](https://github.com/ariya//ask-llm/actions/workflows/test-hyperbolic.yml)
@@ -74,7 +75,7 @@ export LLM_API_BASE_URL=http://localhost:3928/v1
 [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml)
 [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
-Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Novita](https://novita.ai), [Octo](https://octo.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
+Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Novita](https://novita.ai), [Octo](https://octo.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
 For configuration specifics, refer to the relevant section. The examples use Llama-3.1 8B (or GPT-4o Mini for OpenAI), but any LLM with at least 7B parameters should work just as well, such as Mistral 7B, Qwen-2 7B, or Gemma-2 9B.
 
@@ -90,6 +91,13 @@ export LLM_CHAT_MODEL=jamba-1.5-mini
 export LLM_API_BASE_URL=https://api.deepinfra.com/v1/openai
 export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
+```
+
+* [DeepSeek](https://platform.deepseek.com)
+```bash
+export LLM_API_BASE_URL=https://api.deepseek.com/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="deepseek-chat"
 ```
 
 * [Fireworks](https://fireworks.ai/)
