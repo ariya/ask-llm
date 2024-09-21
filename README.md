@@ -69,13 +69,14 @@ export LLM_API_BASE_URL=http://localhost:3928/v1
 [![Test on Groq](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml)
 [![Test on Hyperbolic](https://github.com/ariya/ask-llm/actions/workflows/test-hyperbolic.yml/badge.svg)](https://github.com/ariya//ask-llm/actions/workflows/test-hyperbolic.yml)
 [![Test on Lepton](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml)
+[![Test on Mistral](https://github.com/ariya/ask-llm/actions/workflows/test-mistral.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-mistral.yml)
 [![Test on Novita](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml)
 [![Test on Octo](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-octo.yml)
 [![Test on OpenAI](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openai.yml)
 [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml)
 [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
-Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Novita](https://novita.ai), [Octo](https://octo.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
+Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Mistral](https://console.mistral.ai), [Novita](https://novita.ai), [Octo](https://octo.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
 For configuration specifics, refer to the relevant section. The examples use Llama-3.1 8B (or GPT-4o Mini for OpenAI), but any LLM with at least 7B parameters should work just as well, such as Mistral 7B, Qwen-2 7B, or Gemma-2 9B.
 
@@ -126,6 +127,13 @@ export LLM_CHAT_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
 export LLM_API_BASE_URL=https://llama3-1-8b.lepton.run/api/v1
 export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="llama3-1-8b"
+```
+
+* [Mistral](https://console.mistral.ai)
+```bash
+export LLM_API_BASE_URL=https://api.mistral.ai/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="open-mistral-7b"
 ```
 
 * [Novita](https://novita.ai)
