@@ -1,5 +1,5 @@
-name: Prepare Phi-3.5 Mini
-description: Download Phi-3.5 Mini and launch it
+name: Prepare Small LLM
+description: Download small LLM and launch it
 runs:
   using: composite
   steps:
@@ -9,9 +9,9 @@ runs:
         curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3614/llama-b3614-bin-ubuntu-x64.zip
         unzip llama-b3614-bin-ubuntu-x64.zip
 
-    - name: Launch llama.cpp with Phi-3.5 Mini
+    - name: Launch llama.cpp
       shell: bash
-      run: ./build/bin/llama-server -c 8192 --hf-repo bartowski/Phi-3.5-mini-instruct-GGUF --hf-file Phi-3.5-mini-instruct-Q4_K_M.gguf &
+      run: ./build/bin/llama-server -c 4096 --hf-repo lmstudio-community/Llama-3.2-1B-Instruct-GGUF --hf-file Llama-3.2-1B-Instruct-Q4_K_M.gguf &
 
     - name: Wait until it is ready
       shell: bash

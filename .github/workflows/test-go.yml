@@ -14,7 +14,7 @@ jobs:
 
       - run: go version
 
-      - name: Prepare LLM (Phi-3 Mini)
+      - name: Prepare LLM
         uses: ./.github/actions/prepare-llm
         timeout-minutes: 3
 
