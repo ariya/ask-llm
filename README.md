@@ -9,6 +9,7 @@ It is available in several flavors:
 * Python version. Compatible with [CPython](https://python.org) or [PyPy](https://pypy.org),  v3.10 or higher.
 * JavaScript version. Compatible with [Node.js](https://nodejs.org) (>= v18) or [Bun](https://bun.sh) (>= v1.0).
 * Clojure version. Compatible with [Babashka](https://babashka.org/) (>= 1.3).
+* Swift version. Compatible with [Swift](https://www.swift.org), v5.10 or higher.
 * Go version. Compatible with [Go](https://golang.org), v1.19 or higher.
 
 Ask LLM is compatible with either a cloud-based (managed) LLM service (e.g. [OpenAI GPT model](https://platform.openai.com/docs), [Groq](https://groq.com), [OpenRouter](https://openrouter.ai), etc) or with a locally hosted LLM server (e.g. [llama.cpp](https://github.com/ggerganov/llama.cpp), [LM Studio](https://lmstudio.ai), [Ollama](https://ollama.com), etc). Please continue reading for detailed instructions.
@@ -18,6 +19,7 @@ Interact with the LLM with:
 ./ask-llm.py         # for Python user
 ./ask-llm.js         # for Node.js user
 ./ask-llm.clj        # for Clojure user
+./ask-llm.swift      # for Swift user
 go run ask-llm.go    # for Go user
 ```
 
