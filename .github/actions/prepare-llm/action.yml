@@ -3,11 +3,19 @@ description: Download small LLM and launch it
 runs:
   using: composite
   steps:
-    - name: Download and unpack llama.cpp
+    - name: Download and unpack llama.cpp (Linux)
+      if: runner.os == 'Linux'
       shell: bash
       run: |
         curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3614/llama-b3614-bin-ubuntu-x64.zip
         unzip llama-b3614-bin-ubuntu-x64.zip
+
+    - name: Download and unpack llama.cpp (macOS)
+      if: runner.os == 'macOS'
+      shell: bash
+      run: |
+        curl -OL https://github.com/ggerganov/llama.cpp/releases/download/b3614/llama-b3614-bin-macos-arm64.zip
+        unzip llama-b3614-bin-macos-arm64.zip
 
     - name: Launch llama.cpp
       shell: bash
