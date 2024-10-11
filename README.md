@@ -35,13 +35,13 @@ echo "Translate into German: thank you" | ./ask-llm.py
 
 Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), [LocalAI](https://localai.io), and [LM Studio](https://lmstudio.ai).
 
-To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, ensure to load a quantized model such as [Phi-3.5 Mini](https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF), or [Llama-3.1 8B](https://huggingface.co/lmstudio-community/Meta-Llama-3.1-8B-Instruct-GGUF). Adjust the environment variable `LLM_API_BASE_URL` accordingly:
+To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, load a quantized model like [Llama-3.2 3B](https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF) or [Phi-3.5 Mini](https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF). Then set the `LLM_API_BASE_URL` environment variable:
 ```bash
-/path/to/llama-server -m Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf
+/path/to/llama-server -m Llama-3.2-3B-Instruct-Q4_K_M.gguf
 export LLM_API_BASE_URL=http://127.0.0.1:8080/v1
 ```
 
-To use [Jan](https://jan.ai) with its local API server, refer to [its documentation](https://jan.ai/docs/local-api) and load a model like [Phi-3 Mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf), [LLama-3 8B](https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF), or [OpenHermes 2.5](https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF) and set the environment variable `LLM_API_BASE_URL`:
+To use [Jan](https://jan.ai) with its local API server, refer to [its documentation](https://jan.ai/docs/local-api). Load a model like [Llama-3.2 3B](https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF) or [Phi-3.5 Mini](https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF), and set the following environment variables:
 ```bash
 export LLM_API_BASE_URL=http://127.0.0.1:1337/v1
 export LLM_CHAT_MODEL='llama3-8b-instruct'
@@ -49,18 +49,18 @@ export LLM_CHAT_MODEL='llama3-8b-instruct'
 
 To use [Ollama](https://ollama.com) locally, load a model and configure the environment variable `LLM_API_BASE_URL`:
 ```bash
-ollama pull phi3.5
+ollama pull llama3.2
 export LLM_API_BASE_URL=http://127.0.0.1:11434/v1
-export LLM_CHAT_MODEL='phi3.5'
+export LLM_CHAT_MODEL='llama3.2'
 ```
 
 For [LocalAI](https://localai.io), initiate its container and adjust the environment variable `LLM_API_BASE_URL`:
 ```bash
-docker run -ti -p 8080:8080 localai/localai tinyllama-chat
+docker run -ti -p 8080:8080 localai/localai llama-3.2-3b-instruct:q4_k_m
 export LLM_API_BASE_URL=http://localhost:3928/v1
 ```
 
-For [LM Studio](https://lmstudio.ai), search for and download a model. Next, go to the Developer tab, select the model to load, and click the Start Server button. Then, set the `LLM_API_BASE_URL` environment variable, noting that the server by default runs on port `1234`:
+For [LM Studio](https://lmstudio.ai), pick a model (e.g., Llama-3.2 3B). Next, go to the Developer tab, select the model to load, and click the Start Server button. Then, set the `LLM_API_BASE_URL` environment variable, noting that the server by default runs on port `1234`:
 ```bash
 export LLM_API_BASE_URL=http://127.0.0.1:1234/v1
 ```
@@ -83,7 +83,7 @@ export LLM_API_BASE_URL=http://127.0.0.1:1234/v1
 
 Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Mistral](https://console.mistral.ai), [Novita](https://novita.ai), [Octo](https://octo.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
-For configuration specifics, refer to the relevant section. The examples use Llama-3.1 8B (or GPT-4o Mini for OpenAI), but any LLM with at least 7B parameters should work just as well, such as Mistral 7B, Qwen-2 7B, or Gemma-2 9B.
+For configuration specifics, refer to the relevant section. The quality of answers can vary based on the model's performance.
 
 * [AI21](https://studio.ai21.com)
 ```bash
