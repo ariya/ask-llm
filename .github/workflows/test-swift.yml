@@ -1,0 +1,22 @@
+name: Test with Swift
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: macos-14
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: swift-actions/setup-swift@v2
+
+      - run: swift --version
+
+      - name: Prepare LLM
+        uses: ./.github/actions/prepare-llm
+        timeout-minutes: 3
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.swift | grep -i jupiter
+        timeout-minutes: 7
+        env:
+          LLM_API_BASE_URL: 'http://127.0.0.1:8080/v1'
