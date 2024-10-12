@@ -35,7 +35,7 @@ echo "Translate into German: thank you" | ./ask-llm.py
 
 ## Using Local LLM Servers
 
-Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), [LocalAI](https://localai.io), and [LM Studio](https://lmstudio.ai).
+Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), [LocalAI](https://localai.io), [LM Studio](https://lmstudio.ai), and [Msty](https://msty.app).
 
 To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, load a quantized model like [Llama-3.2 3B](https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF) or [Phi-3.5 Mini](https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF). Then set the `LLM_API_BASE_URL` environment variable:
 ```bash
@@ -65,6 +65,11 @@ export LLM_API_BASE_URL=http://localhost:3928/v1
 For [LM Studio](https://lmstudio.ai), pick a model (e.g., Llama-3.2 3B). Next, go to the Developer tab, select the model to load, and click the Start Server button. Then, set the `LLM_API_BASE_URL` environment variable, noting that the server by default runs on port `1234`:
 ```bash
 export LLM_API_BASE_URL=http://127.0.0.1:1234/v1
+```
+
+For [Msty](https://msty.app), choose a model (e.g., Llama-3.2 3B) and ensure the local AI is running. Go to the Settings menu, under Local AI, and note the Service Endpoint (which defaults to port `10002`). Then set the `LLM_API_BASE_URL` environment variable accordingly:
+```bash
+export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 ```
 
 ## Using Managed LLM Services
