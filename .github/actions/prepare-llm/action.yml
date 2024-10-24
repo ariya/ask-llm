@@ -19,7 +19,7 @@ runs:
 
     - name: Launch llama.cpp
       shell: bash
-      run: ./build/bin/llama-server -c 4096 --hf-repo lmstudio-community/Llama-3.2-1B-Instruct-GGUF --hf-file Llama-3.2-1B-Instruct-Q4_K_M.gguf &
+      run: ./build/bin/llama-server -c 4096 --hf-repo lmstudio-community/granite-3.0-1b-a400m-instruct-GGUF --hf-file granite-3.0-1b-a400m-instruct-Q4_K_M.gguf &
 
     - name: Wait until it is ready
       shell: bash
