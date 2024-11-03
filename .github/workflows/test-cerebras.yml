@@ -1,0 +1,24 @@
+name: Test on Cerebras
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: node --version
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.js | tee output.txt | grep -i jupiter
+        timeout-minutes: 3
+        env:
+          LLM_API_BASE_URL: 'https://api.cerebras.ai/v1'
+          LLM_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          LLM_CHAT_MODEL: 'llama3.1-8b'
+
+      - run: cat output.txt

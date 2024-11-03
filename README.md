@@ -75,6 +75,7 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 ## Using Managed LLM Services
 
 [![Test on AI21](https://github.com/ariya/ask-llm/actions/workflows/test-ai21.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-ai21.yml)
+[![Test on Cerebras](https://github.com/ariya/ask-llm/actions/workflows/test-cerebras.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-cerebras.yml)
 [![Test on DeepInfra](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml)
 [![Test on DeepSeek](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml)
 [![Test on Fireworks](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-fireworks.yml)
@@ -88,7 +89,7 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml)
 [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
-Supported LLM services include [AI21](https://studio.ai21.com), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
+Supported LLM services include [AI21](https://studio.ai21.com), [Cerebras](https://cloud.cerebras.ai), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
 For configuration specifics, refer to the relevant section. The quality of answers can vary based on the model's performance.
 
@@ -97,6 +98,13 @@ For configuration specifics, refer to the relevant section. The quality of answe
 export LLM_API_BASE_URL=https://api.ai21.com/studio/v1
 export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL=jamba-1.5-mini
+```
+
+* [Cerebras](https://cloud.cerebras.ai)
+```bash
+export LLM_API_BASE_URL=https://api.cerebras.ai/v1
+export LLM_API_KEY="yourownapikey"
+export LLM_CHAT_MODEL="llama3.1-8b"
 ```
 
 * [Deep Infra](https://deepinfra.com)
