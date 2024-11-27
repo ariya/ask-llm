@@ -1,0 +1,25 @@
+name: Test with Deno
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - run: deno --version
+
+      - name: Prepare LLM
+        uses: ./.github/actions/prepare-llm
+        timeout-minutes: 3
+
+      - run: echo 'Which planet in our solar system is the largest?' | ./ask-llm.ts | grep -i jupiter
+        timeout-minutes: 7
+        env:
+          LLM_API_BASE_URL: 'http://127.0.0.1:8080/v1'
+          LLM_DEBUG: 1
