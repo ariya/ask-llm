@@ -96,6 +96,15 @@ func chat(messages []Message, handler func(string)) (string, error) {
 		scanner := bufio.NewScanner(resp.Body)
 		for scanner.Scan() {
 			line := scanner.Text()
+			if len(line) == 0 {
+				continue
+			}
+			if line[0] == ':' {
+				continue
+			}
+			if line == "data: [DONE]" {
+				break
+			}
 			if strings.HasPrefix(line, "data: ") {
 				payload := line[6:]
 				var data struct {
