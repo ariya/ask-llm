@@ -37,7 +37,7 @@ echo "Translate into German: thank you" | ./ask-llm.py
 
 ## Using Local LLM Servers
 
-Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), [LocalAI](https://localai.io), [LM Studio](https://lmstudio.ai), and [Msty](https://msty.app).
+Supported local LLM servers include [llama.cpp](https://github.com/ggerganov/llama.cpp), [Jan](https://jan.ai), [Ollama](https://ollama.com), [Cortex](https://cortex.so), [LocalAI](https://localai.io), [LM Studio](https://lmstudio.ai), and [Msty](https://msty.app).
 
 To utilize [llama.cpp](https://github.com/ggerganov/llama.cpp) locally with its inference engine, load a quantized model like [Llama-3.2 3B](https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF) or [Phi-3.5 Mini](https://huggingface.co/bartowski/Phi-3.5-mini-instruct-GGUF). Then set the `LLM_API_BASE_URL` environment variable:
 ```bash
@@ -56,6 +56,12 @@ To use [Ollama](https://ollama.com) locally, load a model and configure the envi
 ollama pull llama3.2
 export LLM_API_BASE_URL=http://127.0.0.1:11434/v1
 export LLM_CHAT_MODEL='llama3.2'
+```
+
+To use [Cortex](https://cortex.so) local inference, pull a model (such as `llama3.2` or `phi-3.5`, among [many others](https://cortex.so/models/)) and ensure that its API server is running, and then configure these environment variables:
+```bash
+export LLM_API_BASE_URL=http://localhost:39281/v1
+export LLM_CHAT_MODEL='llama3.2:3b-gguf-q4-km'
 ```
 
 For [LocalAI](https://localai.io), initiate its container and adjust the environment variable `LLM_API_BASE_URL`:
