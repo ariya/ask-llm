@@ -169,7 +169,8 @@ export LLM_CHAT_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
 ```bash
 export LLM_API_BASE_URL=https://api.mistral.ai/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="open-mistral-7b"
+export LLM_CHAT_MODEL="mistral-small-latest"
+export LLM_STREAMING="no"
 ```
 
 * [Nebius](https://studio.nebius.ai)
