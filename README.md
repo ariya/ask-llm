@@ -141,7 +141,7 @@ export LLM_CHAT_MODEL="deepseek-chat"
 ```bash
 export LLM_API_BASE_URL=https://api.fireworks.ai/inference/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="accounts/fireworks/models/llama-v3p1-8b-instruct"
+export LLM_CHAT_MODEL="accounts/fireworks/models/qwen3-30b-a3b"
 ```
 
 * [Glama](https://glama.ai)
