@@ -148,7 +148,8 @@ export LLM_CHAT_MODEL="accounts/fireworks/models/qwen3-30b-a3b"
 ```bash
 export LLM_API_BASE_URL=https://glama.ai/api/gateway/openai/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL='gemini-1.5-flash-001'
+export LLM_CHAT_MODEL='ministral-3b-2410'
+export LLM_STREAMING="no"
 ```
 
 * [Groq](https://groq.com/)
