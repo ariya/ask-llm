@@ -191,7 +191,7 @@ export LLM_CHAT_MODEL="meta-llama/llama-3.1-8b-instruct"
 ```bash
 export LLM_API_BASE_URL=https://api.openai.com/v1
 export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="gpt-4o-mini"
+export LLM_CHAT_MODEL="gpt-4.1-nano"
 ```
 
 * [OpenRouter](https://openrouter.ai/)
