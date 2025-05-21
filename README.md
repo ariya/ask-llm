@@ -91,7 +91,6 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 [![Test on Glama](https://github.com/ariya/ask-llm/actions/workflows/test-glama.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-glama.yml)
 [![Test on Groq](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-groq.yml)
 [![Test on Hyperbolic](https://github.com/ariya/ask-llm/actions/workflows/test-hyperbolic.yml/badge.svg)](https://github.com/ariya//ask-llm/actions/workflows/test-hyperbolic.yml)
-[![Test on Lepton](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-lepton.yml)
 [![Test on Mistral](https://github.com/ariya/ask-llm/actions/workflows/test-mistral.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-mistral.yml)
 [![Test on Nebius](https://github.com/ariya/ask-llm/actions/workflows/test-nebius.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-nebius.yml)
 [![Test on Novita](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-novita.yml)
@@ -99,7 +98,7 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml)
 [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
-Supported LLM services include [AI21](https://studio.ai21.com), [Avian](https://avian.io), [Cerebras](https://cloud.cerebras.ai), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Glama](https://glama.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Lepton](https://lepton.ai), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
+Supported LLM services include [AI21](https://studio.ai21.com), [Avian](https://avian.io), [Cerebras](https://cloud.cerebras.ai), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Glama](https://glama.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
 For configuration specifics, refer to the relevant section. The quality of answers can vary based on the model's performance.
 
@@ -164,13 +163,6 @@ export LLM_CHAT_MODEL="llama-3.1-8b-instant"
 export LLM_API_BASE_URL=https://api.hyperbolic.xyz/v1
 export LLM_API_KEY="yourownapikey"
 export LLM_CHAT_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
-```
-
-* [Lepton](https://lepton.ai)
-```bash
-export LLM_API_BASE_URL=https://llama3-1-8b.lepton.run/api/v1
-export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="llama3-1-8b"
 ```
 
 * [Mistral](https://console.mistral.ai)
