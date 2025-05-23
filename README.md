@@ -82,7 +82,6 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 
 ## Using Managed LLM Services
 
-[![Test on Avian](https://github.com/ariya/ask-llm/actions/workflows/test-avian.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-avian.yml)
 [![Test on Cerebras](https://github.com/ariya/ask-llm/actions/workflows/test-cerebras.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-cerebras.yml)
 [![Test on DeepInfra](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepinfra.yml)
 [![Test on DeepSeek](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-deepseek.yml)
@@ -97,16 +96,9 @@ export LLM_API_BASE_URL=http://127.0.0.1:10002/v1
 [![Test on OpenRouter](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-openrouter.yml)
 [![Test on Together](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml/badge.svg)](https://github.com/ariya/ask-llm/actions/workflows/test-together.yml)
 
-Supported LLM services include [Avian](https://avian.io), [Cerebras](https://cloud.cerebras.ai), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Glama](https://glama.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
+Supported LLM services include [Cerebras](https://cloud.cerebras.ai), [Deep Infra](https://deepinfra.com), [DeepSeek](https://platform.deepseek.com/), [Fireworks](https://fireworks.ai), [Glama](https://glama.ai), [Groq](https://groq.com), [Hyperbolic](https://www.hyperbolic.xyz), [Mistral](https://console.mistral.ai), [Nebius](https://studio.nebius.ai), [Novita](https://novita.ai), [OpenAI](https://platform.openai.com), [OpenRouter](https://openrouter.ai), and [Together](https://www.together.ai).
 
 For configuration specifics, refer to the relevant section. The quality of answers can vary based on the model's performance.
-
-* [Avian](https://avian.io)
-```bash
-export LLM_API_BASE_URL=https://api.avian.io/v1
-export LLM_API_KEY="yourownapikey"
-export LLM_CHAT_MODEL="Meta-Llama-3.1-8B-Instruct"
-```
 
 * [Cerebras](https://cloud.cerebras.ai)
 ```bash
