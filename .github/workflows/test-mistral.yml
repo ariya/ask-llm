@@ -20,6 +20,5 @@ jobs:
           LLM_API_BASE_URL: 'https://api.mistral.ai/v1'
           LLM_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           LLM_CHAT_MODEL: 'mistral-small-latest'
-          LLM_STREAMING: no
 
       - run: cat output.txt
