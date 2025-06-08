@@ -61,10 +61,14 @@ const chat = async (messages, handler) => {
     }
 
     const parse = (line) => {
-        let partial = null;
-        const prefix = line.substring(0, 6);
-        if (prefix === 'data: ') {
-            const payload = line.substring(6);
+        const separator = line.indexOf(':');
+        if (separator < 0) {
+            return '';
+        }
+        const key = line.substring(0, separator).trim();
+        const payload = line.substring(separator + 1);
+        if (key === 'data') {
+            let partial = null;
             try {
                 const { choices } = JSON.parse(payload);
                 const [choice] = choices;
@@ -75,8 +79,9 @@ const chat = async (messages, handler) => {
             } finally {
                 return partial;
             }
+        } else {
+            return '';
         }
-        return partial;
     }
 
     const reader = response.body.getReader();
