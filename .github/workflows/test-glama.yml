@@ -20,6 +20,5 @@ jobs:
           LLM_API_BASE_URL: 'https://glama.ai/api/gateway/openai/v1'
           LLM_API_KEY: ${{ secrets.GLAMA_API_KEY }}
           LLM_CHAT_MODEL: 'ministral-3b-2410'
-          LLM_STREAMING: 'no'
 
       - run: cat output.txt
